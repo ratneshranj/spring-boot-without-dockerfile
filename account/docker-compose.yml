@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  accounts:
+    image: 241174/bank-account-with-out-docker-file:latest
+    mem_limit: 700m
+    ports:
+      - "9600:8080"
+    networks:
+      - localbank-network
+    
+  loans:
+    image: 241174/bank-loans-with-out-docker-file:latest
+    mem_limit: 700m
+    ports:
+      - "9602:8082"
+    networks:
+      - localbank-network
+    
+  cards:
+    image: 241174/bank-card-with-out-docker-file:latest
+    mem_limit: 700m
+    ports:
+      - "9601:8081"
+    networks:
+      - localbank-network
+    
+networks:
+  localbank-network:
